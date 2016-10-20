@@ -1,0 +1,7 @@
+*.cmake
+build/
+bin/
+*.pyc
+CMakeFiles/
+CMakeCache.txt
+conaninfo.txt
