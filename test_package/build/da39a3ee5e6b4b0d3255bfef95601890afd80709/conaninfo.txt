@@ -1,0 +1,30 @@
+[settings]
+    arch=x86_64
+    build_type=Release
+    compiler=apple-clang
+    compiler.libcxx=libc++
+    compiler.version=8.0
+    os=Macos
+
+[requires]
+    Quickfix/1.Y.Z
+
+[options]
+
+
+[full_settings]
+    arch=x86_64
+    build_type=Release
+    compiler=apple-clang
+    compiler.libcxx=libc++
+    compiler.version=8.0
+    os=Macos
+
+[full_requires]
+    Quickfix/1.14.4@ebostijancic/testing:abbbdb6d96733f30c4a211b3c669892219475181
+
+[full_options]
+    Quickfix:static=True
+
+[scope]
+    dev=True
