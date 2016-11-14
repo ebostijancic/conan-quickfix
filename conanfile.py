@@ -29,6 +29,7 @@ class QuickfixConan(ConanFile):
 
         #self.run('cd %s %s %s' % (self.quickfix_folder, cmake.command_line, static))
         self.run('cd %s && %s && sh ./bootstrap' % (quickfix_folder, env.command_line_env))
+        self.run('cd %s/spec && sh ./generate_c++.sh' % quickfix_folder)
         self.run('cd %s && %s && sh ./configure %s' % (quickfix_folder, env.command_line_env, static))
         self.run('cd %s && %s && make' % (quickfix_folder,  env.command_line_env))
 
@@ -37,14 +38,15 @@ class QuickfixConan(ConanFile):
 
         src_folder = "%s/include/quickfix/" % (self.quickfix_folder)
         self.copy("*.h", src=src_folder, dst="include/quickfix")
+        self.copy("config.h", src=self.quickfix_folder, dst="include/quickfix")
 
         lib_folder = "%s/src/C++/.libs/" % (self.quickfix_folder)
         self.copy("*.lib", src=lib_folder, dst="lib", keep_path=False)
         self.copy("*.16.dylib", src=lib_folder, dst="lib", keep_path=False)
         self.copy("*.la", src=lib_folder, dst="lib", keep_path=False)
-        self.copy("*.so", src=lib_folder, dst="lib", keep_path=False)
+        self.copy("*.so*", src=lib_folder, dst="lib", keep_path=False)
         self.copy("*.a", src=lib_folder, dst="lib", keep_path=False)
 
     def package_info(self):
-        self.cpp_info.libs = ["quickfix"]
+        self.cpp_info.libs = ["libquickfix.a"] if self.options.static else ["libquickfix.so.16"]
 

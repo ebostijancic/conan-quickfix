@@ -5,6 +5,8 @@
 #include <quickfix/SessionSettings.h>
 #include <quickfix/Application.h>
 
+
+
 int main(int argc, char** argv) {
 	try {
 		if (argc < 2)
