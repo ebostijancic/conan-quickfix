@@ -10,7 +10,7 @@ install:
 
 # Install conan
 #- pip install --upgrade pip
-- pip install conan
+- sudo pip install conan
 
 # Automatic detection of your arch, compiler, etc. Download dependencies
 - conan install
