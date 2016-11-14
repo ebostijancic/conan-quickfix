@@ -5,3 +5,5 @@ bin/
 CMakeFiles/
 CMakeCache.txt
 conaninfo.txt
+.cproject
+.project

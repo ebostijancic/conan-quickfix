@@ -1,4 +1,4 @@
-project(quickfix-test)
+project(quickfix-test CXX)
 
 cmake_minimum_required( VERSION 3.5)
 cmake_policy(SET CMP0012 NEW)
@@ -15,5 +15,5 @@ include_directories(
   ${CONAN_INCLUDE_DIRS}
 )
 
-add_executable(quickfix-test example.cpp)
-target_link_libraries(quickfix-test ${CONAN_LIBS_QUICKFIX} ${CMAKE_THREAD_LIBS_INIT} ${CONAN_LIBS})
+add_executable(quickfix-test test.cpp)
+target_link_libraries(quickfix-test ${CMAKE_THREAD_LIBS_INIT} ${CONAN_LIBS})

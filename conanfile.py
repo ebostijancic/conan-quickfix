@@ -33,7 +33,7 @@ class QuickfixConan(ConanFile):
         self.run('cd %s && %s && make' % (quickfix_folder,  env.command_line_env))
 
     def package(self):
-        self.copy("*.h", src=self.quickfix_folder, dst="include/quickfix")
+        #self.copy("*.h", src=self.quickfix_folder, dst="include/quickfix")
 
         src_folder = "%s/include/quickfix/" % (self.quickfix_folder)
         self.copy("*.h", src=src_folder, dst="include/quickfix")
@@ -42,7 +42,7 @@ class QuickfixConan(ConanFile):
         self.copy("*.lib", src=lib_folder, dst="lib", keep_path=False)
         self.copy("*.16.dylib", src=lib_folder, dst="lib", keep_path=False)
         #self.copy("*.la", src=lib_folder, dst="lib", keep_path=False)
-        #self.copy("*.so", src=lib_folder, dst="lib", keep_path=False)
+        self.copy("*.so", src=lib_folder, dst="lib", keep_path=False)
         self.copy("*.a", src=lib_folder, dst="lib", keep_path=False)
 
     def package_info(self):
