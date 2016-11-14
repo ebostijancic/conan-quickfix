@@ -41,9 +41,10 @@ class QuickfixConan(ConanFile):
         lib_folder = "%s/src/C++/.libs/" % (self.quickfix_folder)
         self.copy("*.lib", src=lib_folder, dst="lib", keep_path=False)
         self.copy("*.16.dylib", src=lib_folder, dst="lib", keep_path=False)
-        #self.copy("*.la", src=lib_folder, dst="lib", keep_path=False)
+        self.copy("*.la", src=lib_folder, dst="lib", keep_path=False)
         self.copy("*.so", src=lib_folder, dst="lib", keep_path=False)
         self.copy("*.a", src=lib_folder, dst="lib", keep_path=False)
 
     def package_info(self):
         self.cpp_info.libs = ["quickfix"]
+

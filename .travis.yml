@@ -1,4 +1,4 @@
-nguage: cpp
+language: cpp
 compiler:
 - gcc
 install:
@@ -9,6 +9,7 @@ install:
 - sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-6 60 --slave /usr/bin/g++ g++ /usr/bin/g++-6
 
 # Install conan
+- pip install --upgrade conan
 - pip install conan
 
 # Automatic detection of your arch, compiler, etc. Download dependencies
